@@ -1,0 +1,45 @@
+#### Git
+
+Git: comandos
+● clone - git clone <endereço_do_repositório>
+
+Exemplo:
+$ git clone git://github.com/schacon/grit.git
+
+# Cria uma cópia do código no repositório em um novo repositório já inicializado. O endereço pode 
+ser local (do mesmo computador) ou de um servidor online.
+*********************************************************************************** 
+Inicializa um repositório do git na pasta atual
+● add - git add <nome_do_arquivo>
+# Adiciona o arquivo e suas alterações na lista de arquivos gerenciados. 
+#  É possível adicionar todos os arquivos da pasta com o comando: git add .
+● commit - git commit -m <mensagem>
+Confirma as alterações nos arquivos que foram adicionados desde o último commit. É escrita uma 
+mensagem informando o que foi alterado no programa.
+************************************************************************************
+
+Conecta repositório a servidor 
+
+- git remote add origin <servidor>
+# Atrela o código no computador a um servidor que irá armazenar cópias dos arquivos
+************************************************************************************
+● push - git push origin master
+# Envia o código do último commit para o servidor
+************************************************************************************
+● pull - git pull
+# Baixa a última versão presente no servidor
+************************************************************************************
+
+
+#### Tudo
+
+--- Usuário ubuntu windows 10
+    leandromr75
+    #lecoteco1975
+	
+	
+--- CMD windows
+	Gravar arquivos de um diretório em txt:
+	dir c:\instalações /b /s > c:\lista.txt
+	
+	

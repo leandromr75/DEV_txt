@@ -1,0 +1,229 @@
+#### Classes e Métodos
+
+--- Função range()
+
+range( stop ) #primeira definição ou definição simplificada
+range( [start], stop[, step] ) #segunda definição ou definição completa
+
+exemplos:
+#gerando uma sequência de 0 à 9
+>>> list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#gerando uma sequência de 1 à 11
+>>> list(range(1, 11))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+#gerando uma sequência de 0 à 30 com step=5
+>>> list(range(0, 30, 5))
+[0, 5, 10, 15, 20, 25]
+
+#gerando uma sequência os 5 primeiros números da tabuada de 3
+>>> list(range(0, 10, 3))
+[0, 3, 6, 9]
+
+#gerando uma sequência numérica negativa
+>>> list(range(0, -10, -1))
+[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+
+#gerando uma sequência numérica vazia
+>>> list(range(0))
+[]
+
+#gerando uma sequência numérica vazia,
+#onde o interval inicial é maior do que o final
+#por essa razão, há lista é nula
+>>> list(range(1, 0))
+[]
+
+
+#### Numpy
+
+
+#### Pandas
+
+
+#### Scikit learn
+
+
+#### Django
+
+https://www.youtube.com/watch?v=LZsjuSBW5YM
+https://www.youtube.com/watch?v=NAstsS4rVrY
+https://www.youtube.com/watch?v=6EpHpUoBQDc
+
+-- Preparar teste Django exemplo
+
+Verificando versão:
+- python --version
+- pip --version
+
+Instalando virtualenv
+- pip install virtualenv
+
+Criar diretório
+- mkdir testenv
+- cd testenv
+
+Criar virtualenv
+- virtualenv myenv
+
+Ativar myenv
+activate.bat (entrar no diretório \Scripts\)
+
+Instalar Django
+- pip install django
+
+Verificar versão
+- django-admin --version
+
+Criar projeto
+- django-admin startproject helloworld (cria diretório helloword)
+
+Startar 
+- python manage.py runserver (será exibido em:    localhost:8000)
+
+
+
+
+
+
+
+
+
+#### Selenium
+
+To install this package with conda run one of the following:
+conda install -c conda-forge selenium
+conda install -c conda-forge/label/gcc7 selenium
+conda install -c conda-forge/label/cf201901 selenium
+
+
+ 
+
+#### SQL Jupyter 
+
+--- Exemplo mysql (sqlalchemy)
+
+Iniciaremos no jupyter importando bibliotecas 
+
+import pandas as pd
+import sqlalchemy
+Criando conexão, podemos ver que o banco está local.
+
+Sintaxe:
+
+engine = sqlalchemy.create_engine('mysql+drive://usuario:senha@ip-servidor:porta/banco-de-dados')
+
+Minha conexão:
+
+engine = sqlalchemy.create_engine('mysql+pymysql://root:senhalocal@127.0.0.1:3306/employees')
+
+Parâmetros na documentação table_name = Nome da tabela onde será feita a leitura dos dados 
+con = Objeto conexão criado pelo SQLAlchemy schema = Schema onde a tabela está armazenada 
+index_col = Coluna a ser definida como index
+
+Método read_sql_table
+
+Lendo toda a tabela Employees e transformando em DataFrame
+
+
+df = pd.read_sql_table('employees',engine)
+
+
+Listando dados e informações dos atributos
+
+df.head()
+
+#informações sobre o dataframe criado
+df.info()
+
+
+Lendo apenas algumas colunas da tabela
+
+df = pd.read_sql_table
+('employees', engine, columns="first_name","last_name"])                                                               df.head()
+
+
+
+Método sql_read_query
+
+sql = String SQL Query que deverá ser executada para retornar o conjunto de dados 
+con = Objeto conexão criado pelo SQLAlchemy index_col = Coluna a ser definida como 
+index params= Lista de parametros para serem passados ao método
+
+Criando um Dataframe a partir de uma query
+
+df = pd.read_sql_query("select * from employees",engine)
+
+
+A imaginação é o limite, abaixo criaremos uma dataframe a partir de uma query mais complexa(com join)
+
+query = '''
+SELECT  emp.first_name,
+        emp.last_name,
+        emp.gender,
+        depar.dept_name as departament_name,
+        dept.from_date,
+        dept.to_date
+FROM employees emp
+INNER JOIN dept_emp dept
+ON emp.emp_no = dept.emp_no
+INNER JOIN departments depar
+ON dept.dept_no = depar.dept_no;
+'''
+
+
+df = pd.read_sql_query(query,engine)
+df.head()
+
+Método read_sql(basicamente igual ao read_sql_table)
+Parâmetros sql = String SQL Query que deverá ser executada para retornar o conjunto de dados 
+con = Objeto conexão criado pelo SQLAlchemy index_col = Coluna a ser definida como 
+index params = Lista de parâmetros para serem passados ao método
+
+df = pd.read_sql("departments",engine)
+df.head()
+
+Com uma query
+
+df = pd.read_sql("SELECT * FROM departments",engine)
+df.head()
+Por fim, temos o método to_sql(escreve um DataFrame para o banco de dados relacional)
+
+Carregando a base de um csv
+
+df = pd.read_csv("automobile.csv")
+df.head()
+
+CSV
+
+
+Parâmetros do to_sql name = Nome da tabela que será criada no SGBD con = Objeto conexão criado pelo
+SQLAlchemy schema = Nome do Schema onde será criada a tabela if_exists = Comportamento caso a tabela
+exista no SGBD index = Escreve o índice do DataFrame como uma coluna da tabela 
+index_label = Nome da coluna de índice
+
+Criando a tabela no banco a partir do DataFrame
+
+df.to_sql(
+    name = 'tb_automobile',
+    con = engine,
+)
+Criando a tabela no Banco de Dados sem a coluna de índice
+
+df.to_sql(
+    name = 'tb_automobile',
+    con = engine,
+    index = False,
+   
+    if_exists ='append'
+)
+
+
+
+
+#### pytket (módulo python para computação quântica)
+
+https://cqcl.github.io/pytket/build/html/index.html
+
